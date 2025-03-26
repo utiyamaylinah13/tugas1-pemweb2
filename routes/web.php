@@ -3,9 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return view(view: 'welcome');
-})->name('home');
+Route::get('/', function (){
+    return view(view: 'web.homepage');
+});
+
+Route::get('/produk', function(){
+    return view(view: 'web.produk');
+})->name('produk');
 
 Route::get('/about', function(){
     return 'about';
