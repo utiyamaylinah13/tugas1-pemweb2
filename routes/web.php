@@ -3,25 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', function (){
-    return view(view: 'web.homepage');
-});
+use App\Http\Controllers\HomepageController; 
 
-Route::get('/produk', function(){
-    return view(view: 'web.produk');
-})->name('produk');
-
-Route::get('/about', function(){
-    return 'about';
-});
-
-Route::get('/keranjang',function(){
-    return 'keranjang';
-});
-
-Route::get('/kategori',function(){
-    return 'kategori';
-});
+Route::get('/',[HomepageController::class,'index'])->name('homepage');
+Route::get('produk',[HomepageController::class, 'produk'])->name('produk');
+Route::get('produk/{slug}', [HomepageController::class, 'produk']); 
+Route::get('categories',[HomepageController::class, 'categories']); 
+Route::get('category/{slug}', [HomepageController::class, 'category']); 
+Route::get('cart', [HomepageController::class, 'cart']); 
+Route::get('checkout', [HomepageController::class, 'checkout']); 
 
 Route::get('/pencarian produk',function(){
     return 'pencarian produk';
